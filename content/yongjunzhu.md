@@ -1,17 +1,18 @@
 ---
+# This file is the page. Edit it and nothing else — app/yongjunzhu/page.tsx
+# reads it at build time and only supplies the styling.
+#
+# One entry per paragraph: leave a blank line between entries, and keep each
+# entry on a single line (markdown joins a lone newline inside a paragraph,
+# which is why entries are not split across lines below).
+#
+# Notes live here rather than in the body: an HTML comment in the body renders
+# as visible text, since nothing in this pipeline parses raw HTML.
 name: Yongjun Zhu
 alsoKnownAs: 朱永俊 · 주영준
 role: Principal Investigator
 affiliation: Department of Library and Information Science, Yonsei University
 ---
-
-<!--
-This file is the page. Edit it and nothing else — app/yongjunzhu/page.tsx reads
-it at build time and only supplies the styling. One entry per paragraph: leave a
-blank line between entries, and keep each entry on a single line (a lone newline
-inside a paragraph is joined by markdown, which is why entries are not split
-across lines here).
--->
 
 ## Education
 
