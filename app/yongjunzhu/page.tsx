@@ -29,12 +29,12 @@ export default function YongjunZhuPage() {
         className="size-28 rounded-lg object-cover"
       />
 
-      <h1 className="mt-6 text-4xl font-semibold tracking-tight text-black sm:text-5xl dark:text-zinc-50">
-        {meta.name}
+      {/* All three names on one line at one size — the English name is not a
+          display heading here, it is one of three ways to write the same name.
+          Still an h1 for document structure; only the styling is quiet. */}
+      <h1 className="mt-6 text-xl font-medium text-black dark:text-zinc-50">
+        {[meta.name, meta.alsoKnownAs].filter(Boolean).join(" · ")}
       </h1>
-      {meta.alsoKnownAs && (
-        <p className="mt-2 text-lg text-zinc-500 dark:text-zinc-500">{meta.alsoKnownAs}</p>
-      )}
       {/* Role and affiliation on separate lines, not joined by a separator —
           the affiliation is long enough to wrap, and wrapping mid-phrase after
           a "·" read as one run-on line. */}
