@@ -21,7 +21,7 @@ export function SiteNav() {
   const pathname = (usePathname() ?? "/").replace(/\/?$/, "/");
 
   return (
-    <header className="mx-auto flex w-full max-w-3xl items-center gap-5 px-6 py-6 sm:py-8">
+    <header className="mx-auto flex w-full max-w-5xl items-center gap-5 px-6 py-6 sm:py-8">
       <nav className="flex flex-1 flex-wrap items-center gap-x-5 gap-y-2 text-sm">
         {LINKS.map(({ href, label }) => {
           const active = pathname === href;

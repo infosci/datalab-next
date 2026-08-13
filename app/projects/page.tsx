@@ -15,7 +15,7 @@ export default function ProjectsPage() {
   const items = projects as Project[];
 
   return (
-    <div className="pt-6 sm:pt-10">
+    <div className="max-w-3xl pt-6 sm:pt-10">
       <h1 className="text-4xl font-semibold tracking-tight text-black sm:text-5xl dark:text-zinc-50">
         Projects
       </h1>

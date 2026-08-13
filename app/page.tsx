@@ -48,10 +48,10 @@ export default function Home() {
 
       <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-600 sm:text-xl dark:text-zinc-400">
         We study people, data, and technology — and what happens where the three
-        meet. At Yonsei University, in science, in health, and in culture.
+        meet.
       </p>
 
-      <div className="mt-14 flex w-full flex-col gap-6">
+      <div className="mt-14 grid w-full gap-6 sm:grid-cols-3">
         {AREAS.map((area) => (
           <section
             key={area.title}

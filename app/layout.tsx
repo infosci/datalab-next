@@ -41,8 +41,8 @@ export default function RootLayout({
           }}
         />
         <SiteNav />
-        <main className="mx-auto w-full max-w-3xl flex-1 px-6 pb-20">{children}</main>
-        <footer className="mx-auto w-full max-w-3xl px-6 pb-10 text-sm text-zinc-500 dark:text-zinc-500">
+        <main className="mx-auto w-full max-w-5xl flex-1 px-6 pb-20">{children}</main>
+        <footer className="mx-auto w-full max-w-5xl px-6 pb-10 text-sm text-zinc-500 dark:text-zinc-500">
           DataLab · Yonsei University
         </footer>
       </body>

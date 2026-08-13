@@ -19,7 +19,7 @@ export default function YongjunZhuPage() {
   const { meta, body } = doc;
 
   return (
-    <div className="pt-6 sm:pt-10">
+    <div className="max-w-3xl pt-6 sm:pt-10">
       <Image
         src={asset("/people/yongjunzhu2.webp")}
         alt=""
