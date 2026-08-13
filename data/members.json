@@ -136,28 +136,12 @@
     "order": 51
   },
   {
-    "slug": "geumrashin",
-    "name": "Geumra Shin",
-    "role": "research interns",
-    "photo": "/people/geumrashin.webp",
-    "link": "https://www.yonsei.ac.kr",
-    "order": 52
-  },
-  {
     "slug": "hayeonjang",
     "name": "Hayeon Jang",
     "role": "alumni",
     "photo": "/people/hayeonjang.webp",
     "link": "https://www.linkedin.com/in/hayeon-jang-jhy7927",
     "order": 52
-  },
-  {
-    "slug": "suminpark",
-    "name": "Sumin Park",
-    "role": "research interns",
-    "photo": "/people/suminpark.webp",
-    "link": "https://www.yonsei.ac.kr",
-    "order": 53
   },
   {
     "slug": "xuanrongcui",

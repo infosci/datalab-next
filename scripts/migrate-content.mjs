@@ -37,9 +37,15 @@ const members = [];
 const photoOut = join(root, "public/people");
 await mkdir(photoOut, { recursive: true });
 
+// Categories the lab does not publish. The old site achieved the same thing by
+// omitting them from display_categories, so these people were never on the
+// public page; dropping them here keeps a re-run from quietly adding them.
+const HIDDEN_ROLES = new Set(["research interns"]);
+
 for (const file of (await readdir(memberDir)).filter((f) => f.endsWith(".md"))) {
   const fm = frontmatter(await readFile(join(memberDir, file), "utf8"));
   if (!fm.title) continue;
+  if (fm.category && HIDDEN_ROLES.has(fm.category)) continue;
 
   // Photos are referenced as "assets/img/people/x.png"; copy each into
   // public/people/ so the new site carries no dependency on the old repo.

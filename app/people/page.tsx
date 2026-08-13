@@ -16,13 +16,13 @@ type Member = {
 };
 
 // Fixed order rather than however the data happens to sort. "research interns"
-// is included deliberately: the old site's display_categories list omitted it,
-// so the two interns in the data never appeared on the page at all.
+// is deliberately absent: the old site never rendered that category either, and
+// the lab confirmed it should stay off the site. scripts/migrate-content.mjs
+// drops those records, so they are not in the data to begin with.
 const ROLE_ORDER = [
   "principal investigator",
   "doctoral students",
   "master's students",
-  "research interns",
   "visiting scholars",
   "alumni",
   "past visiting scholars",
