@@ -1,58 +1,79 @@
 import Link from "next/link";
 
-// The three areas the lab works in. Plain text, deliberately: the old site put
-// three illustrations here, one of which was a stock Einstein quote meme with
-// another site's watermark on it. Titles carry the meaning; the images carried
-// 4MB and a licensing problem.
+// The three areas as cards, matching ddun.ai's gate: rounded-2xl, a hairline
+// border, centered copy, and a copy block that grows so every card's footer
+// sits on one line regardless of how the text wraps.
+//
+// Each is described through people / data / technology — the iSchool triad —
+// so the three areas read as one framing applied to three domains rather than
+// three unrelated blurbs.
 const AREAS = [
   {
     title: "Science of Science",
-    blurb:
-      "How research is produced, collaborates, and accrues impact — studied on scientific publications, citations, and funding records at scale.",
+    tagline: "How research gets made, and what makes it matter.",
+    people: "Scientists, teams, institutions",
+    data: "Publications, citations, funding records",
+    technology: "Network analysis, text mining, predictive modeling",
   },
   {
     title: "Mental Health Informatics",
-    blurb:
-      "What healthcare records, social media, and population data reveal about mental health, its determinants, and the people it reaches.",
+    tagline: "What data reveals about mental health, and the people it reaches.",
+    people: "Patients, clinicians, online communities",
+    data: "Health records, social media, population statistics",
+    technology: "Machine learning, interpretable models, text mining",
   },
   {
     title: "Digital Humanities",
-    blurb:
-      "Computational readings of cultural and historical corpora — text, networks, and the questions humanists have always asked.",
+    tagline: "Computational readings of the cultural and historical record.",
+    people: "Authors, readers, communities",
+    data: "Texts, archives, cultural corpora",
+    technology: "Text mining, knowledge graphs, visualization",
   },
 ];
+
+function Facet({ label, value }: { label: string; value: string }) {
+  return (
+    <p className="mt-1.5 text-sm text-zinc-400 dark:text-zinc-500">
+      <span className="text-zinc-500 dark:text-zinc-400">{label}</span> {value}
+    </p>
+  );
+}
 
 export default function Home() {
   return (
     <div className="pt-6 sm:pt-10">
-      {/* No logo here on purpose. The only asset that exists (datalab_logo.jpg)
-          is a raster with an opaque grey background baked in, so it renders as a
-          grey box on both the dark and light palettes — and its wordmark just
-          repeats the heading below it. A theme-aware SVG mark, like ddun.ai's,
-          would earn a place here; the JPEG does not. */}
       <h1 className="text-4xl font-semibold tracking-tight text-black sm:text-5xl dark:text-zinc-50">
         Yonsei DataLab
       </h1>
 
       <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-600 sm:text-xl dark:text-zinc-400">
-        We do data-driven research at Yonsei University — developing and applying
-        data science methods to publications, health records, social media, and
-        cultural corpora.
+        We study people, data, and technology — and what happens where the three
+        meet. At Yonsei University, in science, in health, and in culture.
       </p>
 
-      <div className="mt-14 space-y-10">
-        {AREAS.map(({ title, blurb }) => (
-          <section key={title}>
-            <h2 className="text-xl font-medium text-black dark:text-zinc-50">{title}</h2>
-            <p className="mt-2 max-w-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
-              {blurb}
-            </p>
+      <div className="mt-14 flex w-full flex-col gap-6">
+        {AREAS.map((area) => (
+          <section
+            key={area.title}
+            className="flex flex-1 flex-col items-center gap-4 rounded-2xl border border-black/[.08] px-6 py-8 text-center dark:border-white/[.145]"
+          >
+            <h2 className="text-2xl font-semibold tracking-tight text-black dark:text-zinc-50">
+              {area.title}
+            </h2>
+            <div className="max-w-sm grow">
+              <p className="text-base text-balance text-zinc-600 dark:text-zinc-400">
+                {area.tagline}
+              </p>
+              <div className="mt-4">
+                <Facet label="People" value={area.people} />
+                <Facet label="Data" value={area.data} />
+                <Facet label="Technology" value={area.technology} />
+              </div>
+            </div>
           </section>
         ))}
       </div>
 
-      {/* The outline pill from ddun.ai and ddun.io, theme-aware, so the three
-          sites read as a family. One way in — the work itself. */}
       <Link
         href="/publications/"
         className="mt-14 inline-block rounded-full border border-black/15 px-5 py-2 text-sm font-medium text-black transition-colors hover:bg-black/[.04] dark:border-white/20 dark:text-zinc-50 dark:hover:bg-white/[.06]"
