@@ -35,9 +35,11 @@ export default function YongjunZhuPage() {
       {meta.alsoKnownAs && (
         <p className="mt-2 text-lg text-zinc-500 dark:text-zinc-500">{meta.alsoKnownAs}</p>
       )}
-      <p className="mt-4 max-w-xl text-zinc-600 dark:text-zinc-400">
-        {meta.role} · {meta.affiliation}
-      </p>
+      {/* Role and affiliation on separate lines, not joined by a separator —
+          the affiliation is long enough to wrap, and wrapping mid-phrase after
+          a "·" read as one run-on line. */}
+      <p className="mt-4 max-w-xl text-zinc-600 dark:text-zinc-400">{meta.role}</p>
+      <p className="max-w-xl text-zinc-600 dark:text-zinc-400">{meta.affiliation}</p>
 
       {/* Markdown drives everything below, so updating this page means editing
           content/yongjunzhu.md and nothing else. Headings and paragraphs are

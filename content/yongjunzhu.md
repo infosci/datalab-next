@@ -10,7 +10,7 @@
 # as visible text, since nothing in this pipeline parses raw HTML.
 name: Yongjun Zhu
 alsoKnownAs: 朱永俊 · 주영준
-role: Principal Investigator
+role: Associate Professor
 affiliation: Department of Library and Information Science, Yonsei University
 ---
 
