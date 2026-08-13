@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import members from "@/data/members.json";
+import { asset } from "@/lib/assets";
 
 export const metadata: Metadata = { title: "People" };
 
@@ -39,7 +40,8 @@ function Person({ person }: { person: Member }) {
     <>
       {person.photo ? (
         <Image
-          src={person.photo}
+          // asset(), not the bare path — next/image does not add basePath.
+          src={asset(person.photo)}
           alt=""
           width={240}
           height={240}
