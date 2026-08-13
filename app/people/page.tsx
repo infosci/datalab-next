@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import members from "@/data/members.json";
 import { asset } from "@/lib/assets";
 
@@ -56,17 +57,20 @@ function Person({ person }: { person: Member }) {
     </>
   );
 
-  return person.link ? (
-    <a
-      href={person.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block transition-opacity hover:opacity-80"
-    >
+  if (!person.link) return <div>{body}</div>;
+
+  // Internal pages (currently just the PI's) route through next/link, which
+  // applies basePath and keeps navigation client-side. Everything else points
+  // at an external profile and opens in a new tab.
+  const className = "group block transition-opacity hover:opacity-80";
+  return person.link.startsWith("/") ? (
+    <Link href={person.link} className={className}>
+      {body}
+    </Link>
+  ) : (
+    <a href={person.link} target="_blank" rel="noopener noreferrer" className={className}>
       {body}
     </a>
-  ) : (
-    <div>{body}</div>
   );
 }
 
