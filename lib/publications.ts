@@ -32,11 +32,6 @@ export type Publication = {
   note: string | null;
 };
 
-// Names to emphasise in author lists. The old al-folio site had this configured
-// but left empty (`scholar.last_name: []`), so no author was ever highlighted;
-// listing the PI here restores the intent.
-export const LAB_AUTHORS = ["Yongjun Zhu"];
-
 function sortByDate(a: Publication, b: Publication) {
   return (
     (b.year ?? 0) - (a.year ?? 0) ||
@@ -64,8 +59,4 @@ export function getPublicationsByYear(): { year: number | null; items: Publicati
   return [...groups.entries()]
     .map(([year, items]) => ({ year, items }))
     .sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
-}
-
-export function isLabAuthor(name: string): boolean {
-  return LAB_AUTHORS.some((lab) => lab.toLowerCase() === name.toLowerCase());
 }

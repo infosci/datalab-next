@@ -1,22 +1,7 @@
 import type { Metadata } from "next";
-import { getPublicationsByYear, isLabAuthor, type Publication } from "@/lib/publications";
+import { getPublicationsByYear, type Publication } from "@/lib/publications";
 
 export const metadata: Metadata = { title: "Publications" };
-
-function Authors({ authors }: { authors: string[] }) {
-  return (
-    <span>
-      {authors.map((name, i) => (
-        <span key={`${name}-${i}`}>
-          {i > 0 && ", "}
-          <span className={isLabAuthor(name) ? "text-black dark:text-zinc-50" : undefined}>
-            {name}
-          </span>
-        </span>
-      ))}
-    </span>
-  );
-}
 
 // "Journal of Informetrics 20(1), 101766" — assembled rather than templated,
 // because online-first papers legitimately have no volume, issue, or pages yet
@@ -29,14 +14,12 @@ function venue(pub: Publication) {
 
 export default function PublicationsPage() {
   const years = getPublicationsByYear();
-  const total = years.reduce((n, group) => n + group.items.length, 0);
 
   return (
     <div className="pt-6 sm:pt-10">
       <h1 className="text-4xl font-semibold tracking-tight text-black sm:text-5xl dark:text-zinc-50">
         Publications
       </h1>
-      <p className="mt-4 text-zinc-600 dark:text-zinc-400">{total} papers</p>
 
       <div className="mt-14 space-y-12">
         {years.map(({ year, items }) => (
@@ -62,7 +45,7 @@ export default function PublicationsPage() {
                     )}
                   </h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    <Authors authors={pub.authors} />
+                    {pub.authors.join(", ")}
                   </p>
                   <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-500">{venue(pub)}</p>
                 </li>
