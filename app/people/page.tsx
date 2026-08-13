@@ -51,7 +51,7 @@ function Person({ person }: { person: Member }) {
       ) : (
         <div className="aspect-square w-full rounded-lg bg-zinc-200 dark:bg-zinc-800" />
       )}
-      <span className="mt-2.5 block text-sm leading-snug font-medium text-black dark:text-zinc-50">
+      <span className="mt-2.5 block text-center text-sm leading-snug font-normal text-black dark:text-zinc-50">
         {person.name}
       </span>
     </>
